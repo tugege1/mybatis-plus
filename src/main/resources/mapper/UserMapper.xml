@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatisplus.mapper.UserMapper">
+
+    <sql id="Base_Column">
+       id,name,age,email
+    </sql>
+    
+    <select id="selByName" resultType="User">
+        select <include refid="Base_Column"></include> from t_user
+        where name = #{name}
+    </select>
+
+    <!--<select id="selectIdAndAgeAndNameAndEmailByName" resultType="User">  默认生成的可能是resultMap，改为Type即可
+        select id, age, name, email
+        from t_user
+        where name = #{name,jdbcType=VARCHAR}
+    </select>-->
+
+</mapper>
